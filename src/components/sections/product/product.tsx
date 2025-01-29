@@ -3,6 +3,7 @@
 import { useState } from 'react';
 
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button/button';
 import { ColorSelector } from '@/components/ui/color-selector/color-selector';
@@ -20,6 +21,7 @@ export function ProductSection({ product }: Readonly<{ product: Product }>) {
   const [selectedStorage, setSelectedStorage] = useState<StorageOption | null>(
     null
   );
+  const router = useRouter();
   const currency = DEFAULT_CURRENCY;
 
   const handleColorChange = (color: ColorOption) => {
@@ -62,9 +64,10 @@ export function ProductSection({ product }: Readonly<{ product: Product }>) {
             variant="secondary"
             extraHeight
             disabled={!selectedColor || !selectedStorage}
-            onClick={() =>
-              handleAddToCart(product, selectedColor, selectedStorage)
-            }
+            onClick={() => {
+              handleAddToCart(product, selectedColor, selectedStorage);
+              router.push('/cart');
+            }}
             className={styles.button}
           >
             Añadir

@@ -2,14 +2,14 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { ProductSection } from './product';
 import { Product } from '@/types/product';
 import { useCartActions } from '@/hooks/use-cart-actions';
+import { useRouter } from 'next/navigation';
 
 jest.mock('@/hooks/use-cart-actions');  // Mock du hook useCartActions
+jest.mock('next/navigation', () => ({
+  useRouter: jest.fn(),
+}));
 
 const mockHandleAddToCart = jest.fn();
-
-beforeEach(() => {
-  (useCartActions as jest.Mock).mockReturnValue({ handleAddToCart: mockHandleAddToCart });
-});
 
 const product: Product = {
   id: '1',
@@ -40,6 +40,14 @@ const product: Product = {
 };
 
 describe('ProductSection', () => {
+  let mockPush: jest.Mock;
+
+  beforeEach(() => {
+    mockPush = jest.fn();
+    (useRouter as jest.Mock).mockReturnValue({ push: mockPush });
+    (useCartActions as jest.Mock).mockReturnValue({ handleAddToCart: mockHandleAddToCart });
+  });
+
   test('renders product name, price, and description', () => {
     render(<ProductSection product={product} />);
 
@@ -73,7 +81,7 @@ describe('ProductSection', () => {
     expect(screen.getByText('Añadir')).toBeEnabled();
   });
 
-  test('calls handleAddToCart with correct parameters', () => {
+  test('calls handleAddToCart with correct parameters and redirects to /cart', () => {
     render(<ProductSection product={product} />);
 
     const greenButton = screen.getByRole('button', { name: /Green/i });
@@ -86,11 +94,11 @@ describe('ProductSection', () => {
     fireEvent.click(addButton);
 
     expect(mockHandleAddToCart).toHaveBeenCalledWith(product, product.colorOptions[1], product.storageOptions[1]);
+    expect(mockPush).toHaveBeenCalledWith('/cart');
   });
 
   test('disables "Add to Cart" button if no color or storage is selected', () => {
     render(<ProductSection product={product} />);
-
     expect(screen.getByText('Añadir')).toBeDisabled();
   });
 });

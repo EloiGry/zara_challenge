@@ -25,3 +25,9 @@
     color: #E32020;
     cursor: pointer;
 }
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}

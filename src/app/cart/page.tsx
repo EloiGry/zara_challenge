@@ -1,4 +1,13 @@
-import CartItem from "@/components/ui/cart-item/cart-item";
+import { CartFooter } from "@/components/layout/cart-footer/cart-footer";
+import { CartList } from "@/components/sections/cart-list/cart-list";
+import clsx from "clsx";
+import styles from './page.module.css'
+
 export default function Cart() {
-  return <CartItem />;
+  return (
+    <div className={clsx("layoutPage container", styles.container)}>
+    <CartList />
+    <CartFooter/>
+    </div>
+  ) 
 }

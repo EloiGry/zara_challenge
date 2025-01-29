@@ -1,46 +1,49 @@
-'use client';
-
 import Image from 'next/image';
 
 import { DEFAULT_CURRENCY } from '@/config/constants';
-import { useCart } from '@/context/cart/cart';
+import { CartItem as CartType } from '@/types/cart';
 
 import { Typography } from '../typography/typography';
 import styles from './cart-item.module.css';
 
-import clsx from 'clsx';
-
-export default function CartItem() {
+interface CartItemProps {
+  cart: CartType;
+  removeItem: (id: string) => void;
+}
+export default function CartItem({
+  cart,
+  removeItem,
+}: Readonly<CartItemProps>) {
   const currency = DEFAULT_CURRENCY;
-  const { cart, removeItem, updateQuantity, totalPrice } = useCart();
-  if (!cart || cart.length < 1) {
-    return <p> Nada </p>
-  }
+
   return (
-    <div className={clsx(styles.container, 'container')}>
-      <Image
-        src={cart[0]?.colorOptions.imageUrl}
-        alt={cart[0]?.name}
-        width={0}
-        height={0}
-        sizes="100vw"
-        style={{ width: 'auto', height: '100%' }}
-      />
-      <div className={styles.content}>
-        <div className={styles.details}>
-          <div>
+    <div>
+      <div className={styles.container}>
+        <Image
+          src={cart.colorOptions.imageUrl}
+          alt={cart.name}
+          width={300}
+          height={300}
+        />
+        <div className={styles.content}>
+          <div className={styles.details}>
+            <div>
+              <Typography variant="text-md" uppercase>
+                {cart.name}
+              </Typography>
+              <Typography variant="text-md" uppercase>
+                {cart.storageOptions.capacity} |{cart.colorOptions.name}
+              </Typography>
+            </div>
             <Typography variant="text-md" uppercase as="span">
-              {cart[0]?.name}{' '}
+              {cart.storageOptions.price * cart.quantity} {currency}
             </Typography>
-            <Typography variant="text-md" uppercase as="span">
-              {cart[0]?.storageOptions.capacity} | {cart[0]?.colorOptions.name}
-            </Typography>
+            <Typography variant="text-md" uppercase as="span"> Quantity: {cart.quantity}</Typography>
           </div>
-          <Typography variant="text-md" uppercase as="span">
-            {cart[0]?.storageOptions.price} {currency}{' '}
-          </Typography>
+          <button className={styles.button} onClick={() => removeItem(cart.id)}>
+            Eliminar
+          </button>
         </div>
-        <button className={styles.button}> Eliminar </button>
       </div>
     </div>
   );
