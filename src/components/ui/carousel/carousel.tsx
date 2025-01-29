@@ -30,7 +30,7 @@ export function Carousel({
   showProgressBar = true,
   className,
   children,
-}: CarouselProps) {
+}: Readonly<CarouselProps>) {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -55,7 +55,7 @@ export function Carousel({
         </div>
       </div>
       {showProgressBar && (
-        <div className="container">
+        <div data-testid="progress-bar">
           <ProgressBar progress={scrollProgress} />
         </div>
       )}
@@ -63,11 +63,11 @@ export function Carousel({
   );
 }
 
-export function CarouselSlide({ children, className }: CarouselSlideProps) {
+export function CarouselSlide({ children, className }: Readonly<CarouselSlideProps>) {
   return <div className={clsx('embla__slide', className)}>{children}</div>;
 }
 
-export function ProgressBar({ progress, className }: ProgressBarProps) {
+export function ProgressBar({ progress, className }: Readonly<ProgressBarProps>) {
   return (
     <div className={clsx('embla__controls', className)}>
       <div className="embla__progress">

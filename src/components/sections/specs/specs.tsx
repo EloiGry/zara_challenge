@@ -8,10 +8,19 @@ interface SpecsProps {
   };
 }
 
-export function Specs({ specs }: SpecsProps) {
+export function Specs({ specs }: Readonly<SpecsProps>) {
+  if (!specs || Object.keys(specs).length < 1) {
+    return (
+      <section className={styles.flexContainer}>
+        <Typography variant="text-md">
+          No specifications available for this product
+        </Typography>
+      </section>
+    );
+  }
   return (
-    <div className={styles.flexContainer}>
-      <Typography variant="title" uppercase>
+    <section className={styles.flexContainer}>
+      <Typography variant="title" uppercase as="h2">
         Specifications
       </Typography>
       <div>
@@ -24,6 +33,6 @@ export function Specs({ specs }: SpecsProps) {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

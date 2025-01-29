@@ -14,7 +14,7 @@ import { ColorOption, Product, StorageOption } from '@/types/product';
 
 import styles from './product.module.css';
 
-export function ProductSection({ product }: { product: Product }) {
+export function ProductSection({ product }: Readonly<{ product: Product }>) {
   const { handleAddToCart } = useCartActions();
   const [selectedColor, setSelectedColor] = useState<ColorOption | null>(null);
   const [selectedStorage, setSelectedStorage] = useState<StorageOption | null>(
@@ -31,7 +31,7 @@ export function ProductSection({ product }: { product: Product }) {
   };
 
   return (
-    <div>
+    <section>
       <div className={styles.container}>
         <Image
           src={selectedColor?.imageUrl ?? product.colorOptions[0].imageUrl}
@@ -71,6 +71,6 @@ export function ProductSection({ product }: { product: Product }) {
           </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
