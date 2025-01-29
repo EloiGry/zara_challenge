@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  position: fixed;
+  padding: 24px 0;
+  background: var(--color-bg);
+  z-index: 20;
+  width: 100%;
+  height: 80px;
+}

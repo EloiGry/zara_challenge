@@ -1,0 +1,32 @@
+.colors {
+  display: flex;
+  gap: 16px;
+}
+
+.space {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.button {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #cccccc;
+  background-color: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.button.selected {
+  border-color: #000000;
+}
+
+.colorBox {
+  width: 20px;
+  height: 20px;
+}

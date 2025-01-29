@@ -1,0 +1,17 @@
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.space {
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 834px) {
+  .space {
+    gap: 48px
+  }
+}

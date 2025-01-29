@@ -1,0 +1,38 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.container_slider {
+  margin: 0 auto;
+  padding-left: 16px;
+}
+
+@media (min-width: 834px) {
+  .container_slider {
+    padding-left: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container_slider {
+    padding-left: 100px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container_slider {
+    padding-left: 100px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container_slider {
+    padding-left: 100px;
+  }
+}
+
+.card {
+  margin-bottom: 20px !important;
+  margin-top: 20px !important;
+}

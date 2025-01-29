@@ -1,0 +1,85 @@
+/* Small devices */
+.main-title {
+  font-size: var(--font-size-main-title-sm);
+  line-height: var(--line-height-main-title-sm);
+}
+.title {
+  font-size: var(--font-size-title-sm);
+  line-height: var(--line-height-title-sm);
+}
+.text-xl {
+  font-size: var(--font-size-text-xl-sm);
+  line-height: var(--line-height-text-xl-sm);
+}
+.text-lg {
+  font-size: var(--font-size-text-lg-sm);
+  line-height: var(--line-height-text-lg-sm);
+}
+.text-md {
+  font-size: var(--font-size-text-md-sm);
+  line-height: var(--line-height-text-md-sm);
+}
+.text-sm {
+  font-size: var(--font-size-text-sm-sm);
+  line-height: var(--line-height-text-sm-sm);
+}
+
+@media (min-width: 834px) {
+  /* Medium devices */
+  .main-title {
+    font-size: var(--font-size-main-title-md);
+    line-height: var(--line-height-main-title-md);
+  }
+  .title {
+    font-size: var(--font-size-title-md);
+    line-height: var(--line-height-title-md);
+  }
+  .text-xl {
+    font-size: var(--font-size-text-xl-md);
+    line-height: var(--line-height-text-xl-md);
+  }
+  .text-lg {
+    font-size: var(--font-size-text-lg-md);
+    line-height: var(--line-height-text-lg-md);
+  }
+  .text-md {
+    font-size: var(--font-size-text-md-md);
+    line-height: var(--line-height-text-md-md);
+  }
+  .text-sm {
+    font-size: var(--font-size-text-sm-md);
+    line-height: var(--line-height-text-sm-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Large devices */
+  .main-title {
+    font-size: var(--font-size-main-title-lg);
+    line-height: var(--line-height-main-title-lg);
+  }
+  .title {
+    font-size: var(--font-size-title-lg);
+    line-height: var(--line-height-title-lg);
+  }
+  .text-xl {
+    font-size: var(--font-size-text-xl-lg);
+    line-height: var(--line-height-text-xl-lg);
+  }
+  .text-lg {
+    font-size: var(--font-size-text-lg-lg);
+    line-height: var(--line-height-text-lg-lg);
+  }
+  .text-md {
+    font-size: var(--font-size-text-md-lg);
+    line-height: var(--line-height-text-md-lg);
+  }
+  .text-sm {
+    font-size: var(--font-size-text-sm-lg);
+    line-height: var(--line-height-text-sm-lg);
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

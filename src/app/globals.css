@@ -1,0 +1,116 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #000000;
+  --color-subtext: #79736d;
+
+  --font-weight: 300;
+
+  /* Font-size */
+  --font-size-main-title-sm: 20px;
+  --font-size-main-title-md: 20px;
+  --font-size-main-title-lg: 24px;
+
+  --font-size-title-sm: 20px;
+  --font-size-title-md: 20px;
+  --font-size-title-lg: 20px;
+
+  --font-size-text-xl-sm: 14px;
+  --font-size-text-xl-md: 14px;
+  --font-size-text-xl-lg: 20px;
+
+  --font-size-text-lg-sm: 12px;
+  --font-size-text-lg-md: 12px;
+  --font-size-text-lg-lg: 14px;
+
+  --font-size-text-md-sm: 12px;
+  --font-size-text-md-md: 12px;
+  --font-size-text-md-lg: 12px;
+
+  --font-size-text-sm-sm: 10px;
+  --font-size-text-sm-md: 10px;
+  --font-size-text-sm-lg: 10px;
+
+  /* Line-height */
+  --line-height-main-title-sm: 24.18px;
+  --line-height-main-title-md: 24.18px;
+  --line-height-main-title-lg: 29.02px;
+
+  --line-height-title-sm: 24.18px;
+  --line-height-title-md: 24.18px;
+  --line-height-title-lg: 24.18px;
+
+  --line-height-text-xl-sm: 16.93px;
+  --line-height-text-xl-md: 16.93px;
+  --line-height-text-xl-lg: 24.18px;
+
+  --line-height-text-lg-sm: 14.51px;
+  --line-height-text-lg-md: 14.51px;
+  --line-height-text-lg-lg: 16.93px;
+
+  --line-height-text-md-sm: 14.51px;
+  --line-height-text-md-md: 14.51px;
+  --line-height-text-md-lg: 14.51px;
+
+  --line-height-text-sm-sm: 12.09px;
+  --line-height-text-sm-md: 12.09px;
+  --line-height-text-sm-lg: 12.09px;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-weight: var(--font-weight);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.layoutPage {
+  padding-top: 104px;
+  padding-bottom: 80px;
+}
+
+@media (min-width: 834px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .layoutPage {
+    padding-top: 148px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  .layoutPage {
+    padding-top: 148px;
+  }
+}
