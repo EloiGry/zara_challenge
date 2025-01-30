@@ -7,12 +7,13 @@ import styles from './page.module.css';
 
 import clsx from 'clsx';
 
-export default async function Home({
-  searchParams,
-}: Readonly<{
-  searchParams?: { query?: string };
-}>) {
-  const query = (await searchParams)?.query ?? '';
+type SearchParams = Promise<{ [key: string]: string }>
+
+export default async function Home(props: {
+  searchParams: SearchParams
+}) {
+  const searchParams = await props.searchParams
+  const query = searchParams.query
   const products = await getProducts(query, 20);
   const totalResults = products.length;
 

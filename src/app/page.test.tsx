@@ -30,7 +30,7 @@ describe('Server Side Rendering', () => {
 
     (getProducts as jest.Mock).mockResolvedValue(mockProducts);
 
-    const searchParams = { query: 'product' };
+    const searchParams = Promise.resolve({ query: 'product' });
 
     const ui = await Home({ searchParams });
     render(ui);
@@ -42,7 +42,7 @@ describe('Server Side Rendering', () => {
   it('should render no results if no products found', async () => {
     (getProducts as jest.Mock).mockResolvedValue([]);
 
-    const searchParams = { query: 'nonexistent' };
+    const searchParams = Promise.resolve({ query: 'nonexistent' });
 
     const ui = await Home({ searchParams });
     render(ui);
