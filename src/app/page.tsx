@@ -7,18 +7,18 @@ import styles from './page.module.css';
 
 import clsx from 'clsx';
 
-type SearchParams = Promise<{ [key: string]: string }>
+type SearchParams = Promise<{ [key: string]: string }>;
 
-export default async function Home(props: {
-  searchParams: SearchParams
-}) {
-  const searchParams = await props.searchParams
-  const query = searchParams.query
+export default async function Home(
+  props: Readonly<{ searchParams: SearchParams }>
+) {
+  const searchParams = await props.searchParams;
+  const query = searchParams.query;
   const products = await getProducts(query, 20);
   const totalResults = products.length;
 
   return (
-    <div className={clsx(styles.space, "container layoutPage")}>
+    <div className={clsx(styles.space, 'container layoutPage')}>
       <div className={styles.search}>
         <Search placeholder="Search products..." />
         <Typography variant="text-md" as="p" uppercase>

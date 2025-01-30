@@ -53,11 +53,11 @@
 }
 
 .brand {
-  color:#79736D;
+  color: #79736d;
 }
 
 .card:hover .brand {
-  color: #CCCCCC; 
+  color: #cccccc;
 }
 
 .flex {

@@ -1,6 +1,8 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { CartList } from './cart-list';
+import { fireEvent, render, screen } from '@testing-library/react';
+
 import { useCart } from '@/context/cart/cart';
+
+import { CartList } from './cart-list';
 
 jest.mock('@/context/cart/cart', () => ({
   useCart: jest.fn(),
@@ -24,14 +26,22 @@ describe('CartList', () => {
       {
         id: '1',
         name: 'Item 1',
-        colorOptions: { name: 'Red', hexCode: '#FF0000', imageUrl: '/assets/test-image.png' },
+        colorOptions: {
+          name: 'Red',
+          hexCode: '#FF0000',
+          imageUrl: '/assets/test-image.png',
+        },
         storageOptions: { capacity: '64GB', price: 199 },
         quantity: 1,
       },
       {
         id: '2',
         name: 'Item 2',
-        colorOptions: { name: 'Blue', hexCode: '#0000FF', imageUrl: '/assets/test-image.png' },
+        colorOptions: {
+          name: 'Blue',
+          hexCode: '#0000FF',
+          imageUrl: '/assets/test-image.png',
+        },
         storageOptions: { capacity: '128GB', price: 299 },
         quantity: 2,
       },
@@ -58,7 +68,11 @@ describe('CartList', () => {
       {
         id: '1',
         name: 'Item 1',
-        colorOptions: { name: 'Red', hexCode: '#FF0000', imageUrl: '/assets/test-image.png' },
+        colorOptions: {
+          name: 'Red',
+          hexCode: '#FF0000',
+          imageUrl: '/assets/test-image.png',
+        },
         storageOptions: { capacity: '64GB', price: 199 },
         quantity: 1,
       },

@@ -9,7 +9,13 @@ jest.mock('@/context/cart/cart', () => ({
 }));
 
 jest.mock('next/link', () => {
-  const MockLink = ({ children, href }: { children: React.ReactNode; href: string }) => (
+  const MockLink = ({
+    children,
+    href,
+  }: {
+    children: React.ReactNode;
+    href: string;
+  }) => (
     <a href={href} data-testid="link">
       {children}
     </a>

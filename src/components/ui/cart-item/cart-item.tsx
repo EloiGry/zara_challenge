@@ -9,8 +9,10 @@ import styles from './cart-item.module.css';
 interface CartItemProps {
   cart: CartType;
   removeItem: (id: string) => void;
+  index?: number;
 }
 export default function CartItem({
+  index,
   cart,
   removeItem,
 }: Readonly<CartItemProps>) {
@@ -22,8 +24,10 @@ export default function CartItem({
         <Image
           src={cart.colorOptions.imageUrl}
           alt={cart.name}
-          width={300}
-          height={300}
+          width={250}
+          height={250}
+          className={styles.image}
+          priority={index === 0}
         />
         <div className={styles.content}>
           <div className={styles.details}>
@@ -38,7 +42,9 @@ export default function CartItem({
             <Typography variant="text-md" uppercase as="span">
               {cart.storageOptions.price * cart.quantity} {currency}
             </Typography>
-            <Typography variant="text-md" uppercase as="span"> Quantity: {cart.quantity}</Typography>
+            <Typography variant="text-md" uppercase as="span">
+              Quantity: {cart.quantity}
+            </Typography>
           </div>
           <button className={styles.button} onClick={() => removeItem(cart.id)}>
             Eliminar

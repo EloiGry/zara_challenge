@@ -1,6 +1,8 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import Cart from './page';
+import { fireEvent, render, screen } from '@testing-library/react';
+
 import { useCart } from '@/context/cart/cart';
+
+import Cart from './page';
 
 jest.mock('@/context/cart/cart', () => ({
   useCart: jest.fn(),
@@ -25,14 +27,22 @@ describe('Cart Page', () => {
       {
         id: '1',
         name: 'Item 1',
-        colorOptions: { name: 'Red', hexCode: '#FF0000', imageUrl: '/assets/test-image.png' },
+        colorOptions: {
+          name: 'Red',
+          hexCode: '#FF0000',
+          imageUrl: '/assets/test-image.png',
+        },
         storageOptions: { capacity: '64GB', price: 199 },
         quantity: 1,
       },
       {
         id: '2',
         name: 'Item 2',
-        colorOptions: { name: 'Blue', hexCode: '#0000FF', imageUrl: '/assets/test-image.png' },
+        colorOptions: {
+          name: 'Blue',
+          hexCode: '#0000FF',
+          imageUrl: '/assets/test-image.png',
+        },
         storageOptions: { capacity: '128GB', price: 299 },
         quantity: 2,
       },
@@ -47,7 +57,7 @@ describe('Cart Page', () => {
     render(<Cart />);
 
     expect(screen.getByText('Cart (2)')).toBeInTheDocument();
-    
+
     mockCartItems.forEach((item) => {
       expect(screen.getByText(item.name)).toBeInTheDocument();
       expect(screen.getByAltText(item.name)).toBeInTheDocument();
@@ -60,7 +70,11 @@ describe('Cart Page', () => {
       {
         id: '1',
         name: 'Item 1',
-        colorOptions: { name: 'Red', hexCode: '#FF0000', imageUrl: '/assets/test-image.png' },
+        colorOptions: {
+          name: 'Red',
+          hexCode: '#FF0000',
+          imageUrl: '/assets/test-image.png',
+        },
         storageOptions: { capacity: '64GB', price: 199 },
         quantity: 1,
       },

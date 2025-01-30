@@ -4,6 +4,10 @@ import { getProducts } from '@/api/products';
 
 import Home from './page';
 
+async function generateSearchParams(value: { [key: string]: string }) {
+  return value;
+}
+
 jest.mock('@/api/products', () => ({
   getProducts: jest.fn() as jest.MockedFunction<typeof getProducts>,
 }));
@@ -14,40 +18,86 @@ jest.mock('next/navigation', () => ({
     replace: jest.fn(),
     query: {},
   }),
-  useSearchParams: jest
-    .fn()
-    .mockReturnValue(new URLSearchParams('?query=product')),
+  useSearchParams: jest.fn(),
   usePathname: jest.fn().mockReturnValue('/'),
 }));
 
-describe('Server Side Rendering', () => {
+describe('Should render correct products list', () => {
   it('should render correct data', async () => {
     const mockProducts = [
-      { id: 1, name: 'Product 1', imageUrl: '/assets/test-image.png' },
-      { id: 2, name: 'Product 2', imageUrl: '/assets/test-image.png'  },
-      { id: 3, name: 'Hello world', imageUrl: '/assets/test-image.png'  },
+      {
+        id: 1,
+        name: 'Product 1',
+        brand: 'test',
+        imageUrl: '/assets/test-image.png',
+      },
+      {
+        id: 2,
+        name: 'Product 2',
+        brand: 'test',
+        imageUrl: '/assets/test-image.png',
+      },
+      {
+        id: 3,
+        name: 'Hello world',
+        brand: 'test',
+        imageUrl: '/assets/test-image.png',
+      },
     ];
 
-    (getProducts as jest.Mock).mockResolvedValue(mockProducts);
-
-    const searchParams = Promise.resolve({ query: 'product' });
-
-    const ui = await Home({ searchParams });
+    const params = {
+      query: 'product',
+    };
+    (getProducts as jest.Mock).mockResolvedValue(
+      mockProducts.filter(
+        (p) =>
+          p.name.toLowerCase().includes(params.query) ||
+          p.brand.toLowerCase().includes(params.query)
+      )
+    );
+    const ui = await Home({ searchParams: generateSearchParams(params) });
     render(ui);
-
     expect(screen.getByText('Product 1')).toBeInTheDocument();
     expect(screen.getByText('Product 2')).toBeInTheDocument();
+    expect(screen.queryByText('Hello world')).toBeNull();
+    expect(screen.getByText(/2 results/)).toBeInTheDocument();
   });
 
-  it('should render no results if no products found', async () => {
-    (getProducts as jest.Mock).mockResolvedValue([]);
+  it('should render 1 result / Brand test', async () => {
+    const mockProducts = [
+      {
+        id: 1,
+        name: 'Product 1',
+        brand: 'test',
+        imageUrl: '/assets/test-image.png',
+      },
+      {
+        id: 2,
+        name: 'Product 2',
+        brand: 'test',
+        imageUrl: '/assets/test-image.png',
+      },
+      {
+        id: 3,
+        name: 'Hello world',
+        brand: 'rever',
+        imageUrl: '/assets/test-image.png',
+      },
+    ];
 
-    const searchParams = Promise.resolve({ query: 'nonexistent' });
-
-    const ui = await Home({ searchParams });
+    const params = {
+      query: 'rever',
+    };
+    (getProducts as jest.Mock).mockResolvedValue(
+      mockProducts.filter(
+        (p) =>
+          p.name.toLowerCase().includes(params.query) ||
+          p.brand.toLowerCase().includes(params.query)
+      )
+    );
+    const ui = await Home({ searchParams: generateSearchParams(params) });
     render(ui);
 
-    expect(screen.getByText(/0 results/)).toBeInTheDocument();
-    expect(screen.queryByText('Hello world')).not.toBeInTheDocument();
+    expect(screen.getByText(/1 result/)).toBeInTheDocument();
   });
 });

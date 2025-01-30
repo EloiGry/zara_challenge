@@ -1,36 +1,134 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zara Challenge
 
-## Getting Started
+## Project Overview
+This project allows users to browse a list of products (smartphones), view details about each phone, and explore different variations (colors, storage options). Users can also add products to their cart.
 
-First, run the development server:
+## Technologies Used
+- **Frameworks:** Next.js 15, TypeScript, CSS Modules
+- **Third-party Libraries:** Embla Carousel
+- **Additional Tools:** ESLint, Prettier
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Installation
+### Prerequisites
+- Node.js 18+
+
+### Steps to Install and Run Locally
+1. Clone the repository:
+   ```sh
+   git clone <repository_url>
+   cd zara-challenge
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Create an `.env.local` file and add the following variables:
+   ```sh
+   API_BASE_URL=<your_api_base_url>
+   API_KEY=<your_api_key>
+   ```
+4. Start the development server:
+   ```sh
+   npm run dev
+   ```
+
+## API Routes
+### `/products`
+Returns a list of available products:
+```json
+{
+  "id": "1",
+  "brand": "Apple",
+  "name": "iPhone 12",
+  "basePrice": 909,
+  "imageUrl": "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_announce-iphone12pro_10132020_big.jpg.large.jpg"
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### `/products/{id}`
+Returns detailed information about a specific product:
+```json
+{
+  "id": "string",
+  "brand": "string",
+  "name": "string",
+  "description": "string",
+  "basePrice": 0,
+  "rating": 0,
+  "specs": {
+    "screen": "string",
+    "resolution": "string",
+    "processor": "string",
+    "mainCamera": "string",
+    "selfieCamera": "string",
+    "battery": "string",
+    "os": "string",
+    "screenRefreshRate": "string"
+  },
+  "colorOptions": [
+    {
+      "name": "string",
+      "hexCode": "string",
+      "imageUrl": "string"
+    }
+  ],
+  "storageOptions": [
+    {
+      "capacity": "string",
+      "price": 0
+    }
+  ],
+  "similarProducts": [
+    {
+      "id": "1",
+      "brand": "Apple",
+      "name": "iPhone 12",
+      "basePrice": 909,
+      "imageUrl": "https://www.apple.com/newsroom/images/product/iphone/standard/Apple_announce-iphone12pro_10132020_big.jpg.large.jpg"
+    }
+  ]
+}
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
+- **Server-Side Rendering (SSR)** with Next.js 15
+- **Filtering Products** by name or brand on the homepage
+- **Search Debounce** (300ms, configurable in the `Search` component)
+- **Cart Management** using React Context and LocalStorage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Configuration
+### Required Environment Variables
+- `.env.local`
+- Key configuration files
 
-## Learn More
+## Deployment
+The project is deployed on **Vercel**: [Live Demo](https://zara-challenge-iota.vercel.app/)
 
-To learn more about Next.js, take a look at the following resources:
+## Testing
+- All components are tested using **Jest** and **React Testing Library**.
+- Run tests with:
+  ```sh
+  npm run test
+  ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
+```
+src/
+ ├── api/
+ ├── app/
+ │   ├── components/
+ │   │   ├── layout/
+ │   │   ├── sections/
+ │   │   ├── ui/
+ ├── config/
+ ├── context/
+ ├── hooks/
+ ├── types/
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contributing
+Contributions are welcome! Feel free to submit issues or pull requests.
 
-## Deploy on Vercel
+## License
+MIT License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

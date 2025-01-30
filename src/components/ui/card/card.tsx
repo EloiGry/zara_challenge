@@ -21,7 +21,7 @@ export function Card({
   price,
   image,
   className,
-  index
+  index,
 }: Readonly<CardProps>) {
   const currency = DEFAULT_CURRENCY;
   return (
@@ -33,9 +33,7 @@ export function Card({
           className={styles.image}
           width={200}
           height={200}
-          priority={index === 42}
-          loading="lazy"
-          
+          priority={index === 0}
         />
         <div
           className={clsx(styles.flex, styles.spaceBetween, styles.alignBottom)}

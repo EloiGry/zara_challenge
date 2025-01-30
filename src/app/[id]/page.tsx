@@ -10,7 +10,7 @@ import clsx from 'clsx';
 
 type Params = Promise<{ id: string }>;
 
-export default async function ProductPage(props: { params: Params }) {
+export default async function ProductPage(props: Readonly<{ params: Params }>) {
   const params = await props.params;
   const data = await getProductById(params.id);
 

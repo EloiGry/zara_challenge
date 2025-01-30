@@ -3,7 +3,7 @@
   margin: auto;
   display: flex;
   flex-direction: column;
-  gap:80px;
+  gap: 80px;
 }
 
 .card {
@@ -11,22 +11,10 @@
   margin-top: 20px !important;
 }
 .wrap {
-  position: relative
+  position: relative;
 }
 .button {
   display: flex;
   position: absolute;
   top: 80px;
-}
-
-@media (min-width: 834px) {
-  .button {
-    display: none;
-  }
-}
-
-@media (min-width: 1024px) {
-  .button {
-    display: flex;
-  }
 }

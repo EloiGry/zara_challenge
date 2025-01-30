@@ -63,11 +63,17 @@ export function Carousel({
   );
 }
 
-export function CarouselSlide({ children, className }: Readonly<CarouselSlideProps>) {
+export function CarouselSlide({
+  children,
+  className,
+}: Readonly<CarouselSlideProps>) {
   return <div className={clsx('embla__slide', className)}>{children}</div>;
 }
 
-export function ProgressBar({ progress, className }: Readonly<ProgressBarProps>) {
+export function ProgressBar({
+  progress,
+  className,
+}: Readonly<ProgressBarProps>) {
   return (
     <div className={clsx('embla__controls', className)}>
       <div className="embla__progress">

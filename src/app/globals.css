@@ -76,6 +76,7 @@ body {
   margin: 0;
   border: 0;
   font-weight: var(--font-weight);
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 a {

@@ -23,7 +23,7 @@ jest.mock('next/link', () => {
     </a>
   );
 
-  MockLink.displayName = 'MockLink'; 
+  MockLink.displayName = 'MockLink';
 
   return MockLink;
 });
