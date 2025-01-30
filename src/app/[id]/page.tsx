@@ -8,13 +8,11 @@ import styles from './page.module.css';
 
 import clsx from 'clsx';
 
-export default async function ProductPage({
-  params,
-}: Readonly<{
-  params: { id: string };
-}>) {
-  const { id } = await params;
-  const data = await getProductById(id);
+type Params = Promise<{ id: string }>;
+
+export default async function ProductPage(props: { params: Params }) {
+  const params = await props.params;
+  const data = await getProductById(params.id);
 
   return (
     <div className={clsx(styles.wrap, 'layoutPage container')}>

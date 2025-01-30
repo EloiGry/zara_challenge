@@ -11,6 +11,7 @@ import clsx from 'clsx';
 
 interface CardProps extends CardType {
   className?: string;
+  index?: number;
 }
 
 export function Card({
@@ -20,6 +21,7 @@ export function Card({
   price,
   image,
   className,
+  index
 }: Readonly<CardProps>) {
   const currency = DEFAULT_CURRENCY;
   return (
@@ -31,8 +33,9 @@ export function Card({
           className={styles.image}
           width={200}
           height={200}
-          priority={false}
+          priority={index === 42}
           loading="lazy"
+          
         />
         <div
           className={clsx(styles.flex, styles.spaceBetween, styles.alignBottom)}

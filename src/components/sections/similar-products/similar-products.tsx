@@ -37,6 +37,7 @@ export function SimilarProducts({ data }: Readonly<SimilarProductsProps>) {
               price={product.basePrice}
               image={product.imageUrl}
               className={styles.card}
+              index={index}
             />
           </CarouselSlide>
         ))}

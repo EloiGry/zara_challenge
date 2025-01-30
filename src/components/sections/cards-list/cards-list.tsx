@@ -17,6 +17,7 @@ export default function CardsList({ cards }: Readonly<CardsListProps>) {
           brand={product.brand}
           price={product.basePrice}
           image={product.imageUrl}
+          index={index}
         />
       ))}
     </section>
