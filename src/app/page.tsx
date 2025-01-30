@@ -15,7 +15,7 @@ export default async function Home({
   const query = (await searchParams)?.query ?? '';
   const products = await getProducts(query, 20);
   const totalResults = products.length;
-  console.log(products)
+
   return (
     <div className={clsx(styles.space, "container layoutPage")}>
       <div className={styles.search}>

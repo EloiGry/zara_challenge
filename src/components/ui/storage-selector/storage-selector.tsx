@@ -15,7 +15,7 @@ interface StorageSelectorProps {
 export function StorageSelector({
   storageOptions,
   onStorageChange,
-}: StorageSelectorProps) {
+}: Readonly<StorageSelectorProps>) {
   const [selectedStorage, setSelectedStorage] = useState<StorageOption | null>(
     null
   );

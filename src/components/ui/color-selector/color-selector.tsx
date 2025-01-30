@@ -12,7 +12,10 @@ interface ColorSelectorProps {
   onColorChange: (color: ColorOption) => void;
 }
 
-export function ColorSelector({ colors, onColorChange }: ColorSelectorProps) {
+export function ColorSelector({
+  colors,
+  onColorChange,
+}: Readonly<ColorSelectorProps>) {
   const [selectedColor, setSelectedColor] = useState<ColorOption | null>(null);
 
   const handleColorChange = (color: ColorOption) => {
@@ -46,7 +49,6 @@ export function ColorSelector({ colors, onColorChange }: ColorSelectorProps) {
       </div>
       {selectedColor && (
         <Typography variant="text-md" uppercase as="span">
-          {' '}
           {selectedColor.name}
         </Typography>
       )}

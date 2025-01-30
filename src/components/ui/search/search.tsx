@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-import { useDebouncedCallback } from '@/hooks/use-debounce';
+import { useDebouncedCallback } from '@/hooks/use-debounce/use-debounce';
 
 import styles from './search.module.css';
 

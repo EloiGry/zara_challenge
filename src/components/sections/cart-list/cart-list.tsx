@@ -6,7 +6,6 @@ import { useCart } from '@/context/cart/cart';
 
 export function CartList() {
   const { cart, removeItem, getItemCount } = useCart();
-  console.log(cart);
   const itemCount = getItemCount();
   if (!itemCount || itemCount < 1) {
     return (

@@ -16,6 +16,7 @@ const config: Config = {
     '^@/components/(.*)$': '<rootDir>/src/components/$1',
     '^@/context/(.*)$': '<rootDir>/src/context/$1',
     '^@/hooks/(.*)$': '<rootDir>/src/hooks/$1',
+    '^@/api/(.*)$': '<rootDir>/src/api/$1',
   },
 };
 

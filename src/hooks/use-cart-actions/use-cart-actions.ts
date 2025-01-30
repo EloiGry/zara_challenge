@@ -1,5 +1,5 @@
-import { useCart } from "@/context/cart/cart";
-import { Product, ColorOption, StorageOption } from "@/types/product";
+import { useCart } from '@/context/cart/cart';
+import { ColorOption, Product, StorageOption } from '@/types/product';
 
 export function useCartActions() {
   const { addItem } = useCart();
@@ -15,10 +15,8 @@ export function useCartActions() {
         name: product.name,
         colorOptions: selectedColor,
         storageOptions: selectedStorage,
-        quantity: 1, 
+        quantity: 1,
       };
-
-      console.log("test", newItem)
 
       addItem(newItem);
     }

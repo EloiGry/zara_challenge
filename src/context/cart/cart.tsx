@@ -11,12 +11,10 @@ import React, {
 
 import { CartItem } from '@/types/cart';
 
-type CartContextType = {
+export type CartContextType = {
   cart: CartItem[];
   addItem: (item: CartItem) => void;
   removeItem: (id: string) => void;
-  updateQuantity: (id: string, quantity: number) => void;
-  clearCart: () => void;
   totalPrice: number;
   getItemCount: () => number;
 };
@@ -71,17 +69,6 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   };
 
-  const updateQuantity = (id: string, quantity: number) => {
-    if (quantity < 1) return;
-    setCart((prevCart) =>
-      prevCart.map((item) => (item.id === id ? { ...item, quantity } : item))
-    );
-  };
-
-  const clearCart = () => {
-    setCart([]);
-  };
-
   const totalPrice = cart.reduce(
     (total, item) => total + item.storageOptions.price * item.quantity,
     0
@@ -96,20 +83,10 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       cart,
       addItem,
       removeItem,
-      updateQuantity,
-      clearCart,
       totalPrice,
       getItemCount,
     }),
-    [
-      cart,
-      addItem,
-      removeItem,
-      updateQuantity,
-      clearCart,
-      totalPrice,
-      getItemCount,
-    ]
+    [cart, addItem, removeItem, totalPrice, getItemCount]
   );
 
   return (

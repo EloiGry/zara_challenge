@@ -10,7 +10,7 @@ import { ColorSelector } from '@/components/ui/color-selector/color-selector';
 import { StorageSelector } from '@/components/ui/storage-selector/storage-selector';
 import { Typography } from '@/components/ui/typography/typography';
 import { DEFAULT_CURRENCY } from '@/config/constants';
-import { useCartActions } from '@/hooks/use-cart-actions';
+import { useCartActions } from '@/hooks/use-cart-actions/use-cart-actions';
 import { ColorOption, Product, StorageOption } from '@/types/product';
 
 import styles from './product.module.css';

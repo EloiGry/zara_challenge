@@ -32,7 +32,7 @@ export default function CartItem({
                 {cart.name}
               </Typography>
               <Typography variant="text-md" uppercase>
-                {cart.storageOptions.capacity} |{cart.colorOptions.name}
+                {cart.storageOptions.capacity} | {cart.colorOptions.name}
               </Typography>
             </div>
             <Typography variant="text-md" uppercase as="span">

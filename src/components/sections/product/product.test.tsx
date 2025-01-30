@@ -1,10 +1,13 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { ProductSection } from './product';
-import { Product } from '@/types/product';
-import { useCartActions } from '@/hooks/use-cart-actions';
 import { useRouter } from 'next/navigation';
 
-jest.mock('@/hooks/use-cart-actions');  // Mock du hook useCartActions
+import { fireEvent, render, screen } from '@testing-library/react';
+
+import { useCartActions } from '@/hooks/use-cart-actions/use-cart-actions';
+import { Product } from '@/types/product';
+
+import { ProductSection } from './product';
+
+jest.mock('@/hooks/use-cart-actions/use-cart-actions'); // Mock du hook useCartActions
 jest.mock('next/navigation', () => ({
   useRouter: jest.fn(),
 }));
@@ -45,7 +48,9 @@ describe('ProductSection', () => {
   beforeEach(() => {
     mockPush = jest.fn();
     (useRouter as jest.Mock).mockReturnValue({ push: mockPush });
-    (useCartActions as jest.Mock).mockReturnValue({ handleAddToCart: mockHandleAddToCart });
+    (useCartActions as jest.Mock).mockReturnValue({
+      handleAddToCart: mockHandleAddToCart,
+    });
   });
 
   test('renders product name, price, and description', () => {
@@ -93,7 +98,11 @@ describe('ProductSection', () => {
     const addButton = screen.getByText('Añadir');
     fireEvent.click(addButton);
 
-    expect(mockHandleAddToCart).toHaveBeenCalledWith(product, product.colorOptions[1], product.storageOptions[1]);
+    expect(mockHandleAddToCart).toHaveBeenCalledWith(
+      product,
+      product.colorOptions[1],
+      product.storageOptions[1]
+    );
     expect(mockPush).toHaveBeenCalledWith('/cart');
   });
 
