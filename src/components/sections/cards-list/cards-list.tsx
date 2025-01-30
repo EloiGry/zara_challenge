@@ -9,7 +9,7 @@ type CardsListProps = {
 export default function CardsList({ cards }: Readonly<CardsListProps>) {
   return (
     <section className={styles.gridContainer}>
-      {cards.map((product: any, index: number) => (
+      {cards.map((product: CardsProps, index: number) => (
         <Card
           key={index}
           id={product.id}

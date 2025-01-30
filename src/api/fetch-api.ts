@@ -1,6 +1,6 @@
 import qs from 'qs';
 
-const fetchApi = async (endpoint: string, params: Record<string, any> = {}) => {
+const fetchApi = async (endpoint: string, params: Record<string, string | number | boolean | null> = {}) => {
   const API_BASE_URL = process.env.API_BASE_URL;
   const API_KEY = process.env.API_KEY;
 
