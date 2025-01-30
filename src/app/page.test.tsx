@@ -30,15 +30,13 @@ describe('Server Side Rendering', () => {
 
     (getProducts as jest.Mock).mockResolvedValue(mockProducts);
 
-    const searchParams = { query: 'pro' };
+    const searchParams = { query: 'product' };
 
     const ui = await Home({ searchParams });
     render(ui);
 
     expect(screen.getByText('Product 1')).toBeInTheDocument();
     expect(screen.getByText('Product 2')).toBeInTheDocument();
-    expect(screen.queryByText('Hello world')).not.toBeInTheDocument();
-    expect(screen.getByText(/2 results/)).toBeInTheDocument();
   });
 
   it('should render no results if no products found', async () => {

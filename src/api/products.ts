@@ -5,7 +5,7 @@ export const getProducts = async (
   limit?: number,
   offset: number = 0
 ) => {
-  const params: { search?: string; limit?: number; offset?: number } = {};
+  const params: { search?: string; limit?: number; offset?: number } = { search, limit, offset };
 
   if (search) params.search = search;
   if (limit) params.limit = limit;
