@@ -38,8 +38,9 @@ export function ProductSection({ product }: Readonly<{ product: Product }>) {
         <Image
           src={selectedColor?.imageUrl ?? product.colorOptions[0].imageUrl}
           alt={product.name}
-          width={500}
-          height={500}
+          width={300}
+          height={300}
+          className={styles.image}
         />
         <div className={styles.details}>
           <div className={styles.title}>

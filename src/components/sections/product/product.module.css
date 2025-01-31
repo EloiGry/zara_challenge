@@ -4,6 +4,33 @@
   justify-content: space-between;
   align-items: center;
   margin: auto;
+  overflow: hidden;
+}
+
+.container > img {
+  width: auto;
+  max-height: 100%;
+  overflow: hidden;
+  padding: 20px 0
+}
+
+.image {
+  width: 300px; /* Taille par défaut pour les petits écrans */
+  height: 300px;
+}
+
+@media (min-width: 863px) {
+  .image {
+    width: 400px; /* Taille pour les tablettes (largeur minimale de 640px) */
+    height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .image {
+    width: 500px; /* Taille pour les grands écrans (largeur minimale de 1024px) */
+    height: 500px;
+  }
 }
 
 @media (min-width: 834px) {
@@ -23,6 +50,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+  margin-left: 0.5px;
 }
 
 @media (min-width: 834px) {

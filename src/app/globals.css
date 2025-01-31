@@ -65,7 +65,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -76,7 +76,7 @@ body {
   margin: 0;
   border: 0;
   font-weight: var(--font-weight);
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 a {

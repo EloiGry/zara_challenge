@@ -21,7 +21,7 @@ export function CartList() {
       <Typography variant="main-title" uppercase>
         Cart ({itemCount})
       </Typography>
-      <div>
+      <div className={styles.space}>
         {cart.map((item, index) => {
           return (
             <CartItem

@@ -7,4 +7,13 @@
   .container {
     gap: 48px;
   }
+  .space {
+    gap:48px;
+  }
+}
+
+.space {
+    display: flex;
+    flex-direction: column;
+    gap: 24px
 }
