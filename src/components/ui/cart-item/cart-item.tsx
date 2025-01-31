@@ -24,8 +24,8 @@ export default function CartItem({
         <Image
           src={cart.colorOptions.imageUrl}
           alt={cart.name}
-          width={250}
-          height={250}
+          width={200}
+          height={200}
           className={styles.image}
           priority={index === 0}
           style={{objectFit: "contain"}}
