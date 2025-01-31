@@ -12,8 +12,8 @@
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between !important;
-  height: 100% !important;
+  justify-content: space-evenly;
+  height: 100%;
 }
 
 .details {
@@ -42,5 +42,8 @@
   }
   .details {
     width: auto;
+  }
+  .content {
+    justify-content: space-between;
   }
 }
