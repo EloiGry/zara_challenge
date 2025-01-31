@@ -34,6 +34,7 @@ export function Card({
           width={200}
           height={200}
           priority={index === 0}
+          style={{objectFit: "contain"}}
         />
         <div
           className={clsx(styles.flex, styles.spaceBetween, styles.alignBottom)}

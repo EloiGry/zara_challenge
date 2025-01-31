@@ -6,14 +6,14 @@
   height: 250px;
 }
 .image {
-    width: 60%;
+  width: 60%;
 }
 .content {
   display: flex;
   flex-direction: column;
   justify-content: space-between !important;
   height: 100% !important;
-  width: 40%
+  width: 40%;
 }
 
 .details {
@@ -37,10 +37,10 @@
 }
 
 @media (min-width: 500px) {
-    .image {
-        width: auto
-    }
-    .details {
-        width:auto
-    }
+  .image {
+    width: auto;
   }
+  .details {
+    width: auto;
+  }
+}

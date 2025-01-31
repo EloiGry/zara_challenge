@@ -28,6 +28,7 @@ export default function CartItem({
           height={250}
           className={styles.image}
           priority={index === 0}
+          style={{objectFit: "contain"}}
         />
         <div className={styles.content}>
           <div className={styles.details}>

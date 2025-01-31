@@ -41,6 +41,7 @@ export function ProductSection({ product }: Readonly<{ product: Product }>) {
           width={300}
           height={300}
           className={styles.image}
+          style={{objectFit: "contain"}}
         />
         <div className={styles.details}>
           <div className={styles.title}>
