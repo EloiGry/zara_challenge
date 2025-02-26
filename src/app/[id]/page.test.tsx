@@ -1,9 +1,12 @@
+import React from 'react';
+
 import { render, screen } from '@testing-library/react';
 
 import { getProductById } from '@/api/products';
 import { useCart } from '@/context/cart/cart';
 
-import { ProductContent } from './page';
+import { ProductContent } from './product-content';
+
 
 jest.mock('embla-carousel-react', () => ({
   __esModule: true,
@@ -50,7 +53,6 @@ jest.mock('next/navigation', () => ({
     query: {},
   }),
 }));
-
 
 const mockProduct = {
   id: '123',
