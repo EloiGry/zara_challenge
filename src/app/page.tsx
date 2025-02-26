@@ -12,6 +12,17 @@ import clsx from 'clsx';
 
 type SearchParams = Promise<{ [key: string]: string }>;
 
+
+export default function Home(props: Readonly<{ searchParams: SearchParams }>) {
+  return (
+    <div className={clsx(styles.space, 'container layoutPage')}>
+      <Suspense fallback={<Loader />}>
+        <ProductsList searchParams={props.searchParams} />
+      </Suspense>
+    </div>
+  );
+}
+
 export async function ProductsList({ searchParams }: { searchParams: SearchParams }) {
   const query = (await searchParams).query;
   const products = await getProducts(query, 20);
@@ -27,15 +38,5 @@ export async function ProductsList({ searchParams }: { searchParams: SearchParam
       </div>
       <CardsList cards={products} />
     </>
-  );
-}
-
-export default function Home(props: Readonly<{ searchParams: SearchParams }>) {
-  return (
-    <div className={clsx(styles.space, 'container layoutPage')}>
-      <Suspense fallback={<Loader />}>
-        <ProductsList searchParams={props.searchParams} />
-      </Suspense>
-    </div>
   );
 }

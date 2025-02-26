@@ -13,17 +13,6 @@ import clsx from 'clsx';
 
 type Params = { id: string };
 
-export async function ProductContent({ id }: Readonly<{ id: string }>) {
-  const data = await getProductById(id);
-
-  return (
-    <>
-      <ProductSection product={data} />
-      <Specs specs={data.specs} />
-      <SimilarProducts data={data.similarProducts} />
-    </>
-  );
-}
 
 export default async function ProductPage(props: Readonly<{ params: Params }>) {
   const params = await props.params;
@@ -36,5 +25,17 @@ export default async function ProductPage(props: Readonly<{ params: Params }>) {
         </Suspense>
       </div>
     </div>
+  );
+}
+
+export async function ProductContent({ id }: Readonly<{ id: string }>) {
+  const data = await getProductById(id);
+
+  return (
+    <>
+      <ProductSection product={data} />
+      <Specs specs={data.specs} />
+      <SimilarProducts data={data.similarProducts} />
+    </>
   );
 }
