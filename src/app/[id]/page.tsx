@@ -10,15 +10,15 @@ import clsx from 'clsx';
 
 type Params = { id: string };
 
-export default async function ProductPage(props: Readonly<{ params: Params }>) {
-  const params = await props.params;
+export default async function ProductPage({params}: Readonly<{params: Promise<{ id: string }>}>) {
+  const { id } = await params;
 
   return (
     <div className={clsx(styles.wrap, 'layoutPage container')}>
       <BackButton className={styles.button} />
       <div className={styles.container}>
         <Suspense fallback={<Loader />}>
-          <ProductContent id={params.id} />
+          <ProductContent id={id} />
         </Suspense>
       </div>
     </div>
