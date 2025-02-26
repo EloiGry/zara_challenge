@@ -66,7 +66,7 @@
   overflow: hidden;
 }
 .embla__progress__bar {
-  background-color: black;
+  background-color: var(--color-text);
   position: absolute;
   width: 100%;
   top: 0;

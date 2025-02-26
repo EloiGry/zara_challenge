@@ -1,6 +1,7 @@
 'use client';
 import React, { ReactNode, createContext, useContext, useEffect, useMemo, useState, useCallback } from 'react';
 import { CartItem } from '@/types/cart';
+import { getCartFromStorage, saveCartToStorage } from '@/utils/cartStorage';
 
 export type CartContextType = {
   cart: CartItem[];
@@ -20,17 +21,11 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
   useEffect(() => {
-    const storedCart =
-      typeof window !== 'undefined' ? localStorage.getItem('cart') : null;
-    if (storedCart) {
-      setCart(JSON.parse(storedCart));
-    }
+    setCart(getCartFromStorage());
   }, []);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('cart', JSON.stringify(cart));
-    }
+    saveCartToStorage(cart);
   }, [cart]);
 
   const addItem = useCallback((item: CartItem) => {

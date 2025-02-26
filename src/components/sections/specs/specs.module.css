@@ -8,11 +8,11 @@
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   padding: 16px 0;
-  border-top: 1px solid black;
+  border-top: 1px solid var(--color-text);
 }
 
 .gridContainer:last-child {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--color-text);
 }
 
 @media (min-width: 834px) {

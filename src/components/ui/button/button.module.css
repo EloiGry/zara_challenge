@@ -9,7 +9,7 @@
 
 .primary {
   background-color: transparent;
-  border: 0.5px solid black;
+  border: 0.5px solid var(--color-text);
 }
 
 .primary.disabled {
@@ -29,7 +29,7 @@
 
 .secondary {
   background-color: #1b1a18;
-  color: white;
+  color: var(--color-bg);
 }
 
 .secondary.disabled {

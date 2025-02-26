@@ -25,7 +25,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: black;
+  background: var(--color-text);
   -webkit-transform: scaleY(0);
   transform: scaleY(0);
   -webkit-transform-origin: 50% 100%;
@@ -44,7 +44,7 @@
 }
 
 .card:hover {
-  color: white;
+  color: var(--color-bg);
 }
 
 .image {
@@ -53,7 +53,7 @@
 }
 
 .brand {
-  color: #79736d;
+  color:var(--color-subtext);
 }
 
 .card:hover .brand {

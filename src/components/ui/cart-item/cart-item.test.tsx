@@ -11,6 +11,7 @@ jest.mock('next/image', () => {
   }: {
     alt?: string;
     src: string;
+    priority?: boolean;
   } & React.ImgHTMLAttributes<HTMLImageElement>) => (
     <img {...props} alt={alt ?? 'test image'} src={src} />
   );

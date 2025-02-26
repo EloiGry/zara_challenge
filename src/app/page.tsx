@@ -1,5 +1,8 @@
+import { Suspense } from 'react';
+
 import { getProducts } from '@/api/products';
 import CardsList from '@/components/sections/cards-list/cards-list';
+import { Loader } from '@/components/ui/loader/loader';
 import { Search } from '@/components/ui/search/search';
 import { Typography } from '@/components/ui/typography/typography';
 
@@ -25,7 +28,9 @@ export default async function Home(
           {totalResults} result{totalResults !== 1 ? 's' : ''}
         </Typography>
       </div>
-      <CardsList cards={products} />
+      <Suspense fallback={<Loader />} />
+        <CardsList cards={products} />
+      <Suspense />
     </div>
   );
 }
