@@ -13,7 +13,7 @@ import clsx from 'clsx';
 
 type Params = { id: string };
 
-export async function ProductContent({ id }: { id: string }) {
+export async function ProductContent({ id }: Readonly<{ id: string }>) {
   const data = await getProductById(id);
 
   return (
@@ -25,7 +25,8 @@ export async function ProductContent({ id }: { id: string }) {
   );
 }
 
-export default function ProductPage({ params }: { params: Params }) {
+export default async function ProductPage(props: Readonly<{ params: Params }>) {
+  const params = await props.params;
   return (
     <div className={clsx(styles.wrap, 'layoutPage container')}>
       <BackButton className={styles.button} />

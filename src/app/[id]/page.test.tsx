@@ -51,9 +51,6 @@ jest.mock('next/navigation', () => ({
   }),
 }));
 
-async function generateParams(value: { id: string }) {
-  return value;
-}
 
 const mockProduct = {
   id: '123',
