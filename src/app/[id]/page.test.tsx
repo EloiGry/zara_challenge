@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { getProductById } from '@/api/products';
 import { useCart } from '@/context/cart/cart';
 
-import Page from './page';
+import { ProductContent } from './page';
 
 jest.mock('embla-carousel-react', () => ({
   __esModule: true,
@@ -103,15 +103,11 @@ describe('ProductPage', () => {
       getItemCount: jest.fn().mockReturnValue(0),
     });
 
-    const params = {
-      id: '123',
-    };
     (getProductById as jest.Mock).mockResolvedValueOnce(mockProduct);
 
-    const ui = await Page({ params: generateParams(params) });
+    const ui = await ProductContent({ id: '123' });
     render(ui);
 
-    // Vérification de l'affichage du nom du produit
     expect(screen.getByText('Product 1')).toBeInTheDocument();
   });
 });

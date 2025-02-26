@@ -11,20 +11,27 @@ import styles from './page.module.css';
 
 import clsx from 'clsx';
 
-type Params = Promise<{ id: string }>;
+type Params = { id: string };
 
-export default async function ProductPage(props: Readonly<{ params: Params }>) {
-  const params = await props.params;
-  const data = await getProductById(params.id);
+export async function ProductContent({ id }: { id: string }) {
+  const data = await getProductById(id);
 
+  return (
+    <>
+      <ProductSection product={data} />
+      <Specs specs={data.specs} />
+      <SimilarProducts data={data.similarProducts} />
+    </>
+  );
+}
+
+export default function ProductPage({ params }: { params: Params }) {
   return (
     <div className={clsx(styles.wrap, 'layoutPage container')}>
       <BackButton className={styles.button} />
       <div className={styles.container}>
         <Suspense fallback={<Loader />}>
-          <ProductSection product={data} />
-          <Specs specs={data.specs} />
-          <SimilarProducts data={data.similarProducts} />
+          <ProductContent id={params.id} />
         </Suspense>
       </div>
     </div>

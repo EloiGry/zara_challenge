@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 
 import { getProducts } from '@/api/products';
 
-import Home from './page';
+import {ProductsList} from './page';
 
 async function generateSearchParams(value: { [key: string]: string }) {
   return value;
@@ -55,7 +55,7 @@ describe('Should render correct products list', () => {
           p.brand.toLowerCase().includes(params.query)
       )
     );
-    const ui = await Home({ searchParams: generateSearchParams(params) });
+    const ui = await ProductsList({ searchParams: generateSearchParams(params) });
     render(ui);
     expect(screen.getByText('Product 1')).toBeInTheDocument();
     expect(screen.getByText('Product 2')).toBeInTheDocument();
@@ -95,7 +95,7 @@ describe('Should render correct products list', () => {
           p.brand.toLowerCase().includes(params.query)
       )
     );
-    const ui = await Home({ searchParams: generateSearchParams(params) });
+    const ui = await ProductsList({ searchParams: generateSearchParams(params) });
     render(ui);
 
     expect(screen.getByText(/1 result/)).toBeInTheDocument();
